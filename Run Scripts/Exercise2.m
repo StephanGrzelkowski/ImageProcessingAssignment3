@@ -12,8 +12,8 @@ figure;
 imshow(im)
 
 Thresh = [-0.5, 0.5]; 
-nrho = 100; 
-ntheta = 100; 
+nrho = 500; 
+ntheta = 500; 
 h = hough(im,Thresh,nrho , ntheta); 
 normHough = h./max(max(h));
 
@@ -21,4 +21,8 @@ normHough = h./max(max(h));
 figure; 
 imshow(normHough)
 
-%% 
+%% houghlines
+
+[x1List, x2List, y1List, y2List] = houghlines(im, normHough, 0.25); 
+
+%implemented dilation 

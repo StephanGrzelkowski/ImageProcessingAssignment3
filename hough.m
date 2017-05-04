@@ -40,8 +40,8 @@ sthetas = sin(thetas);
 cthetas = cos(thetas); 
 
 for i = 1 : length(x)
-    rho = x(i).* sthetas + y(i).* cthetas;  
-    %rhoStar 
+    rho = x(i).* sthetas - y(i).* cthetas;  
+     
     % find closest value in rho
     rhoindex = zeros(1,length(rho)); 
     thetaindex = 1 : ntheta;
@@ -60,15 +60,6 @@ for i = 1 : length(x)
     %h(rhoindex,thetaindex) = h(rhoindex,thetaindex) + 1;
 
 end
-
-% for each theta in thetas :
-% rho = evaluate (1)
-% To convert a value of rho or theta
-% to its appropriate index in the array use:
-
-% for i = 1 : length(rhoindex)
-%     accMat(rhoindex(i),thetaindex(i)) = accMat(rhoindex(i),thetaindex(i)) + 1;
-% end
 
 
 end
