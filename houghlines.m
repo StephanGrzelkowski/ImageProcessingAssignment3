@@ -37,7 +37,7 @@ x1List= zeros(1,nregions);
 y1List = zeros(1,nregions); 
 x2List = zeros(1,nregions); 
 y2List = zeros(1,nregions); 
-lines = zeros(3,nregions; 
+lines = zeros(3,nregions); 
 
 for n = 1 : nregions
     mask = bwl == n; % Form a mask for each region .

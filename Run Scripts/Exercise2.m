@@ -25,4 +25,10 @@ imshow(normHough)
 
 [x1List, x2List, y1List, y2List] = houghlines(im, normHough, 0.25); 
 
-%implemented dilation 
+%% Dilation of an image. 
+se = strel('diamond', 1);
+bw = imread('shapes.png');
+bw2 = imcomplement(bw);
+bw3 = imdilate(bw2, se);
+im = bw3./bw2;
+[X, Y] = 
