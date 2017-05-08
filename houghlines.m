@@ -41,7 +41,9 @@ hThresh(idxThresh) = h(idxThresh);
 % rhoList = zeros(1,nregions); 
 % thetaList = zeros(1,nregions); 
 
+
 points = zeros(4,nregions); 
+
 lines = zeros(3,nregions); 
 
 for n = 1 : nregions
