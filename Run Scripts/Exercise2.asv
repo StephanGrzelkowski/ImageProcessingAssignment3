@@ -73,16 +73,8 @@ end
 
 %plot it 
 % first line: 
-a = lines_fitted(2,1); 
-b = lines_fitted(2,2); 
-c = lines_fitted(2,3); 
-% 
-% x = 1 : 512;
-% y = (a .* x + c) ./ -b; 
-y = 1 : 512; 
-x = (b .* y + c) ./ -a; 
-figure; 
-imshow(im); 
-hold on 
-plot(x,y)
+a = lines_fitted(
+x = 1 : 512;
+y = (a .* x + c) ./ -b; 
+
 

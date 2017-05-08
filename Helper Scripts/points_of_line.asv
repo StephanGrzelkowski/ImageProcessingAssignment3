@@ -1,4 +1,4 @@
-function pts = points_of_line(points , line , epsilon)
+function [pts, dist] = points_of_line(points , line , epsilon)
 % points - an array containing all points
 % line - the homogeneous representation of the line
 % epsilon - the maximum distance
@@ -22,12 +22,11 @@ for i = 1 : size(points, 2)
     %calculate perpendicular distance of the point to the line
     % dot product: 
 %   dist = dot(line,points(:,i)); 
-    dist = dot(line,points(:,i)); 
+    dist(i) = dot(line,points(:,i)); 
     %dist = points(i) .* line - delta(i); 
-    if abs(dist) <= epsilon 
+    if abs(dist(i)) <= epsilon 
        pts = [pts, points(:,i)]; 
     end
 end
-
 
 end

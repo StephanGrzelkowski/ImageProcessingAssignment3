@@ -68,7 +68,7 @@ for n = 1 : nregions
 
     points(4,n) = y2; 
     
-    lines(:,n) = cross([x1,y1,1], [x2,y2,1]);
+    lines(:,n) = cross([x1;y1;1], [x2;y2;1]);
     
 end
 

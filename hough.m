@@ -54,10 +54,6 @@ for i = 1 : length(x)
 
     end
 
-%   rhoindex = round(rho./drho + nrho/2);
-    
-    %thetaindex = round ( theta / dtheta + 1);
-    %h(rhoindex,thetaindex) = h(rhoindex,thetaindex) + 1;
 
 end
 

@@ -6,10 +6,10 @@ function l = line_through_points ( points )
 cx = mean(points(1,:));
 cy = mean(points(2,:));
 
-c = [cx; cy];
+c = [cx; cy; 1];
 
 %
-pointsStar = points(1:2,:) - c; 
+pointsStar = points - c; 
 
 %get the covariance matrix
 C = cov(pointsStar'); 
@@ -18,7 +18,7 @@ C = cov(pointsStar');
 [V, D]= eig(C); 
 
 %find the maximal eigVal
-[~, idxMaxEigVal] = find(max(max(D))); 
+[~, idxMaxEigVal] = find(min(min(D))); 
 
 
 %get the eigenvector of the maximal eigVal
@@ -26,9 +26,8 @@ eigVec = V(:,idxMaxEigVal);
 
 %the optimal line passes trough c with direction eigVec
 cstar = [cx + eigVec(1); cy + eigVec(2); 1]; 
-c(3) = 1;
 
-l = cross(c, cstar)'; 
+l = cross(c, cstar); 
 
 
 
