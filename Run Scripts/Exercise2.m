@@ -12,8 +12,9 @@ figure;
 imshow(im)
 
 Thresh = [-0.5, 0.5]; 
-nrho = 500; 
-ntheta = 500; 
+%500 gives high accuracy of lines / 100 much faster to implement 
+nrho = 100; 
+ntheta = 100; 
 h = hough(im,Thresh,nrho , ntheta); 
 normHough = h./max(max(h));
 
@@ -23,6 +24,21 @@ imshow(normHough)
 
 %% houghlines
 
-[x1List, x2List, y1List, y2List] = houghlines(im, normHough, 0.25); 
+%gives lines of the form ax+by+c where a, b and c are the rows of lines
+lines = houghlines(im, normHough, 0.25); 
 
 %implemented dilation 
+
+
+%% get the points close to a line to fit a line through: 
+% get all relevant points with same threshold used in houghlines: 
+[y,x] = find(normHough >= 0.25);
+% make the points a homogenous list: 
+points = [x'; y'; ones(1,length(x))];
+
+%get the points close to a line (test on first line 
+
+epsilon = 50; 
+l = points_of_line(points(:,1), lines(:,1), epsilon);
+
+
