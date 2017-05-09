@@ -31,6 +31,4 @@ c(3) = 1;
 l = cross(c, cstar)'; 
 
 
-
-
 end

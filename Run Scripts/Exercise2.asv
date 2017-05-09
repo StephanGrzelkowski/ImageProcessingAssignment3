@@ -40,8 +40,7 @@ lines = houghlines(im, normHough, 0.25);
 % 
 % [X, Y] = find(im == 1);
 % 
-% %implemented dilation 
-
+% 
 
 %% get the points close to a line to fit a line through: 
 %transform lines into homogenous representation
@@ -73,8 +72,27 @@ end
 
 %plot it 
 % first line: 
-a = lines_fitted(
-x = 1 : 512;
-y = (a .* x + c) ./ -b; 
+a = lines_fitted(2,1); 
+b = lines_fitted(2,2); 
+c = lines_fitted(2,3); 
+% 
+% x = 1 : 512;
+% y = (a .* x + c) ./ -b; 
+y = 1 : 512; 
+x = (b .* y + c) ./ -a; 
+figure; 
+imshow(im); 
+hold on 
+plot(x,y)
+
+%% find intersection between 2 lines 
+
+% the line intersection is calculated simply using the dot product of two
+% lines
+intersectLines = dot(lines_fitted(2,1),lines_fitted(1,:));
+
+
+
+
 
 
